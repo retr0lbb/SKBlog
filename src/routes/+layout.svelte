@@ -6,7 +6,7 @@
 </pre>
 
 <svelte:head>
-    <title>{$page.data.post?.title? $page.data.post?.title : "SKPOSTS"  }</title>
+    <title>{$page.data.post?.title ?? "SKPOSTS"}</title>
 </svelte:head>
 
 <header>
