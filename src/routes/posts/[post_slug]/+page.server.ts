@@ -6,17 +6,15 @@ export const load: PageServerLoad = async({params}) => {
     if(!params){
         return
     }
-    console.log(params);
-
-    const posts = await db.post.findUnique({
+    const post = await db.post.findUnique({
         where: {
             slug: params.post_slug
         }
     })
 
-    if(!posts){
+    if(!post){
         throw error(404, "Post Not Found too bad")
     }
 
-    return { posts };
+    return { post };
 }
