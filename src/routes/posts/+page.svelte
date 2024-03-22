@@ -5,28 +5,17 @@
 
     $: ({posts} = data)
 
-
-    function rerunLoadFunc(){
-        /* 1° */
-        invalidate("app:posts")
-
-        /* 2° */
-        //invalidate("api/posts")
-        
-        /* 3° */
-        //invalidateAll()
-    }
 </script>
 
-<h1>Posts</h1>
-<button on:click={rerunLoadFunc}>ReRun</button>
+<div>
+    <h1 class="text-cyan-200 text-4xl font-mono">Posts</h1>
+    <h2 class="text-cyan-800">Showing {posts.length} Posts.</h2>
+</div>
 
-<h2>Showing {posts.length} Posts.</h2>
-
+<ul class="text-slate-600 mt-5">
 {#each posts as {slug, title}}
-    <ul>
-        <li>
+        <li class="hover:text-slate-200 transition-all">
             <a href="/posts/{slug}">{title}</a>
         </li>
-    </ul>
 {/each}
+</ul>
